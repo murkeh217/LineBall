@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour
@@ -21,10 +20,6 @@ public class DeathController : MonoBehaviour
         if (GameManager.lives <= 0)
         {
             SceneManager.LoadScene(2);
-            GameManager.lives = 3;
-            GameManager.score = 0;
-            //this.enabled = false;
-  
         }
     }
 
