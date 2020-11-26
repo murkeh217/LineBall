@@ -16,6 +16,7 @@ public class ObstaclesController : MonoBehaviour
 
     public float _spawnDistance = 0f;
 
+
     Queue<GameObject> _activeObstacles = new Queue<GameObject>();
     Queue<GameObject> _pooledObstacles = new Queue<GameObject>();
 
@@ -46,10 +47,11 @@ public class ObstaclesController : MonoBehaviour
         _pooledObstacles.Enqueue(obstacle);
     }
 
-    private IEnumerator Spawner()
+    public IEnumerator Spawner()
     {
         Camera camera = Camera.main;
         var x = camera.transform.position.x + camera.orthographicSize * camera.aspect + _spawnDistance;
+                
 
         while (true)
         {
@@ -76,13 +78,14 @@ public class ObstaclesController : MonoBehaviour
                 default:
                     Debug.Log("Empty");
                     break;
-            }
+      }
+        
 
-            if (_activeObstacles.Count > 0)
+        if (_activeObstacles.Count > 0)
             {
                 var leftMost = _activeObstacles.Peek();
 
-                Debug.Log("Active Obstacles: " + _activeObstacles + " Position of x: " + leftMost.transform.position.x + " Camera position: " + Camera.main.transform.position.x + " t/f: " + leftMost.GetComponentInChildren<Renderer>().isVisible);
+                //Debug.Log("Active Obstacles: " + _activeObstacles + " Position of x: " + leftMost.transform.position.x + " Camera position: " + Camera.main.transform.position.x + " t/f: " + leftMost.GetComponentInChildren<Renderer>().isVisible);
 
                 if (leftMost.transform.position.x < camera.transform.position.x)
                 {
@@ -94,7 +97,7 @@ public class ObstaclesController : MonoBehaviour
         }
     }
 
-    void Update()
+void Update()
     {
         transform.position += ((Vector3.left * speed) * Time.deltaTime);
     }
