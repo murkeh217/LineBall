@@ -13,9 +13,7 @@ public class DeathController : MonoBehaviour
 
         GameManager.lives--;
 
-        StopCoroutine(FindObjectOfType<ObstaclesController>().Spawner());
-
-        StartCoroutine(FindObjectOfType<ObstaclesController>().Spawner());
+        col.enabled = false;
 
         if (GameManager.lives <= 0)
         {

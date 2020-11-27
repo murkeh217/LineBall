@@ -5,17 +5,11 @@ using UnityEngine;
 public class ObstaclesController : MonoBehaviour
 {
     public float speed;
-
     public float queueTime = 0f;
-
     public GameObject obstaclePrefab = null;
-
-    private Coroutine _coroutine;
-
     public PlayerController ball;
-
     public float _spawnDistance = 0f;
-
+    private Coroutine _coroutine;
 
     Queue<GameObject> _activeObstacles = new Queue<GameObject>();
     Queue<GameObject> _pooledObstacles = new Queue<GameObject>();
@@ -51,8 +45,7 @@ public class ObstaclesController : MonoBehaviour
     {
         Camera camera = Camera.main;
         var x = camera.transform.position.x + camera.orthographicSize * camera.aspect + _spawnDistance;
-                
-
+ 
         while (true)
         {
             yield return new WaitForSeconds(queueTime);
