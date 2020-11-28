@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<Collider2D>().enabled = false;
             anim.SetBool("Hurt", true);
             Debug.Log("Hurt");
-            Invoke("ResetInvulnerability", 1);
+            Invoke("ResetInvulnerability", 2);
             
         }
     }
